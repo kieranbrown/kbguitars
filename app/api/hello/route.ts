@@ -8,6 +8,7 @@ export const runtime = 'edge'
 export async function GET(request: NextRequest) {
   const result = await fetch('https://timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam', {
     next: {
+      revalidate: 15,
       tags: ['time'],
     }
   });
